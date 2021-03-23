@@ -4,17 +4,15 @@ import { cloneCapabilities } from "./utils";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // process.env.GLOBAL_AGENT_HTTP_PROXY = "http://localhost:8889";
 const NUM_OF_INSTANCES = process.env.WDIO_CAP_MULTIPLIER || 1;
+const datetime = new Date();
 const baseCapability = {
-
-    "browserName": "chrome",
-    "platformName": "Windows 10",
-    "browserVersion": "latest",
-    "sauce:options": {
-        // "capturePerformance": true,
-        // "extendedDebugging": true
+    browserName: "chrome",
+    browserVersion: "latest",
+    platformName: "Windows 10",
+    'sauce:options': {
+        build: `HIGH CCY BUILD - ${NUM_OF_INSTANCES} CCY - ${datetime}`
     }
-
-}
+};
 
 const config: WebdriverIO.Config  = {
     // debug: true,
