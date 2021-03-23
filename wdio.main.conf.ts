@@ -34,7 +34,7 @@ const config: WebdriverIO.Config  = {
         // 'path/to/excluded/files'
     ],
 
-    maxInstances: 40,
+    maxInstances: 20,
     capabilities: cloneCapabilities(baseCapability, NUM_OF_INSTANCES),
     logLevel: 'debug',
     // logLevels: {
