@@ -15,32 +15,20 @@ const baseCapability = {
 };
 
 const config: WebdriverIO.Config  = {
-    // debug: true,
-    // execArgv: ['--inspect=127.0.0.1:5859'],
 
     runner: 'local',
     automationProtocol: 'webdriver',
 
     user: process.env.SAUCE_USERNAME,
-    key: process.env.SAUCE_ACCESS_KEY,
-    // sauceConnect: true,
-    
+    key: process.env.SAUCE_ACCESS_KEY,    
     
     specs: [
         './tests/sample-google.ts'
-    ],
-    // Patterns to exclude.
-    exclude: [
-        // 'path/to/excluded/files'
     ],
 
     maxInstances: 20,
     capabilities: cloneCapabilities(baseCapability, NUM_OF_INSTANCES),
     logLevel: 'debug',
-    // logLevels: {
-        // webdriver: 'info',
-        // 'wdio-applitools-service': 'info'
-    // },
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 0,
@@ -56,10 +44,7 @@ const config: WebdriverIO.Config  = {
     mochaOpts: {
         timeout: 400000,
         compilers: ['ts:ts-node/register'], 
-    },
-
-    before: function (capabilities, specs) {
-    },
+    }
 }
 
 export { config }
