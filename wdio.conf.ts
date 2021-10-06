@@ -5,12 +5,13 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // process.env.GLOBAL_AGENT_HTTP_PROXY = "http://localhost:8889";
 const NUM_OF_INSTANCES = process.env.WDIO_CAP_MULTIPLIER || 1;
 const datetime = new Date();
+const buildName = process.env.SAUCE_BUILD_NAME || `HIGH CCY BUILD - ${NUM_OF_INSTANCES} CCY - ${datetime}`;
 const baseCapability = {
     browserName: "microsoftedge",
     browserVersion: "latest",
     platformName: "Windows 10",
     'sauce:options': {
-        build: `HIGH CCY BUILD - ${NUM_OF_INSTANCES} CCY - ${datetime}`,
+        build: buildName,
         extendedDebugging: true,
     }
 };
