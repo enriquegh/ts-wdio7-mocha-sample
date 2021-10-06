@@ -6,11 +6,12 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const NUM_OF_INSTANCES = process.env.WDIO_CAP_MULTIPLIER || 1;
 const datetime = new Date();
 const baseCapability = {
-    browserName: "chrome",
+    browserName: "microsoftedge",
     browserVersion: "latest",
     platformName: "Windows 10",
     'sauce:options': {
-        build: `HIGH CCY BUILD - ${NUM_OF_INSTANCES} CCY - ${datetime}`
+        build: `HIGH CCY BUILD - ${NUM_OF_INSTANCES} CCY - ${datetime}`,
+        extendedDebugging: true,
     }
 };
 
